@@ -50,7 +50,7 @@ input[type="text"] {
   color: #fff !important;
   font-weight: lighter;
   letter-spacing: 2px;
-  margin-bottom: 30px;
+  margin-bottom: 12px;
   margin-right: 12px;
   font-size: 12px;
 }
@@ -89,6 +89,7 @@ button:active {
   letter-spacing: 2px;
   display: flex;
   flex-direction: row;
+  border-bottom: #eef151d0 solid 0.5px;
 }
 
 .weather-stat {
@@ -109,7 +110,7 @@ button:active {
 }
 
 .weather-error {
-  color: #fff;
+  color: rgb(255, 82, 82);
   font-size: 12px;
   letter-spacing: 1px;
   font-weight: 120;
