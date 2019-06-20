@@ -41,5 +41,3 @@ Hint: The missing parts of the puzzle are that this prop isn't being called from
 ## 3 - Handle API Errors
 
 If you query the API with a fictitious location like "Oxforb, UK", you will notice that a 404 is returned from the API. Handle this in the redux state and remove the last piece of component state (`error`) from `App.jsx`.
-
-
