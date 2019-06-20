@@ -51,7 +51,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <header className="app-header">
-          Hivemind Weather
+          Weather
         </header>
         <div className="wrapper">
           <div className="main">

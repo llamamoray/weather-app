@@ -1,16 +1,14 @@
 const initialState = {
-  weather: {
-    country: undefined,
-    city: undefined,
-    temperature: undefined,
-    description: undefined,
-    error: undefined,
-  }
-}
+  country: undefined,
+  city: undefined,
+  temperature: undefined,
+  description: undefined,
+  error: undefined,
+};
 
-export default function weather(state, action) {
-  switch (action) {
+export default function weather(state = initialState, action) {
+  switch (action.type) {
     default:
-      return initialState;
+      return state;
   }
 }
