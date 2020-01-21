@@ -18,11 +18,11 @@ a file whilst running webpack will compile the code and reload the page in the b
 
 ## 1 - Fix the error when searching
 
-## 2 - Handle errors on failed API keys/missing city or country
+## 2 - Handle errors on failed API calls or a missing city or country in the form
 
-## 3 - Add LoadingIcon to indicate an active API query
+## 3 - Add LoadingIcon to indicate an active call to the API
 
-## 4 - Change the app so that clicking on get weather adds a Weather Result row and keeps previous results.
+## 4 - Change the app so that clicking on the "get weather" button adds a Weather Result row and keeps previous results.
 
 ## 5 - Add an "expand" button to the WeatherResult to display the daily 5 day maximum temperatures. 
 This should show a list of day labels with the maximum temperatures. e.g.
