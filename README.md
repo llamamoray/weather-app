@@ -5,14 +5,6 @@ https://openweathermap.org/current
 
 This application is built using React and Redux. Some useful places to get started with these technologies are:
 
-- https://reactjs.org/docs/hello-world.html
-- https://redux.js.org/introduction/getting-started
-
-You may also find that using the react and redux dev tools in Chrome useful for the tasks:
-
-- https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
-- https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
-
 # Running the application
 
 1. Install packages. We recommend using yarn `yarn install`
@@ -22,22 +14,18 @@ You may also find that using the react and redux dev tools in Chrome useful for 
 The application is created using create-react-app which is set up with hot-loading. On saving
 a file whilst running webpack will compile the code and reload the page in the browser.
 
-Note: The entry-point to the application is `./src/index.js`. This sets up the redux store and loads `./src/components/AppContainer.js` which renders `./src/components/App.jsx`.
-
 # Tasks
 
-## 1 - Fix the error
+## 1 - Fix the error when searching
 
-Try searching for the weather at your location by populating the 'City', and 'Country' fields. You will notice that the application throws an error `Cannot read property 'setState' of undefined`. The first thing to do it fix this error.
+## 2 - Handle errors on failed API keys/missing city or country
 
-## 2 - Move state into the redux store
+## 3 - Add LoadingIcon to indicate an active API query
 
-You will note that all the application state is stored in the App component `./src/components/App.jsx`. The next task is to move this state into the Redux store. 
+## 4 - Change the app so that clicking on get weather adds a Weather Result row and keeps previous results.
 
-You will see that the action creator `loadWeather` is already set up to be dispatched in a prop also named `loadWeather` in `AppContainer.js`. 
+## 5 - Add an "expand" button to the WeatherResult to display the daily 5 day maximum temperatures. 
+This should show a list of day labels with the maximum temperatures. e.g.
+`Today: 6C Tomorrow: 7C Friday: 6.5C ...`
 
-Hint: The missing parts of the puzzle are that this prop isn't being called from the App component, the reducer `./src/reducers/weather.js` isn't doing anything with the action payload, and the redux state isn't being provided to the App component by the AppContainer.
-
-## 3 - Handle API Errors
-
-If you query the API with a fictitious location like "Oxforb, UK", you will notice that a 404 is returned from the API. Handle this in the redux state and remove the last piece of component state (`error`) from `App.jsx`.
+The api call required to get the data for this is in weatherActions.js and here are helper functions in utils/date.js (getDaysOffset, and getCurrentDayNumber) which deal with timezones for you. 

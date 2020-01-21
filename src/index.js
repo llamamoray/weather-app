@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import './index.css';
 
 import App from './components/AppContainer';
-import reducer from './reducers';
+import reducer from './redux/rootReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
