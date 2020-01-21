@@ -1,19 +1,13 @@
 import React from 'react';
-import WeatherResult from './WeatherResult';
-import SearchForm from './SearchForm';
-import { fetchWeather } from '../actions/weatherActions';
+import PropTypes from 'prop-types';
+import WeatherResult from './WeatherResult/WeatherResult';
+import SearchForm from './SearchForm/SearchForm';
 import './App.css';
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      temperature: undefined,
-      city: undefined,
-      country: undefined,
-      description: undefined,
-      error: undefined
-    };
+    this.getWeather = this.getWeather.bind(this);
   }
 
   getWeather(e) {
@@ -22,24 +16,7 @@ class App extends React.Component {
     e.preventDefault();
 
     if (city && country) {
-      // fire the request via redux action
-      // this.props.loadWeather(city, country);
-
-      fetchWeather(city, country)
-        .then((response) => {
-          this.setState({
-            temperature: response.main.temp,
-            city: response.name,
-            country: response.sys.country,
-            description: response.weather[0].description,
-            error: ''
-          });
-        })
-        .catch(e => {
-          this.setState({
-            error: `Can't find ${city}, ${country}`,
-          })
-        });
+      this.props.loadWeather(city, country);
     } else {
       this.setState({
         error: 'Please input search values...'
@@ -55,16 +32,23 @@ class App extends React.Component {
         </header>
         <div className="wrapper">
           <div className="main">
-            <SearchForm loadWeather={this.getWeather} error={this.state.error} />
+            <SearchForm loadWeather={this.getWeather} error={this.props.error} />
             <WeatherResult
-              temperature={this.state.temperature}
-              city={this.state.city}
-              country={this.state.country}
-              description={this.state.description}
+              temperature={this.props.temperature}
+              city={this.props.city}
+              country={this.props.country}
+              description={this.props.description}
             />
           </div>
         </div>
       </div>);
   }
 }
-export default App;
+
+App.propTypes = {
+  loadWeather: PropTypes.func.isRequired,
+  temperature: PropTypes.number,
+  city: PropTypes.string,
+  country: PropTypes.string,
+  description: PropTypes.string,
+};

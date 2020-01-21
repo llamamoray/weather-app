@@ -1,6 +1,17 @@
 import { connect } from 'react-redux';
-import { loadWeather } from '../actions/weatherActions';
+import { loadWeather } from '../redux/weather/weatherActions';
 import App from './App';
+
+function mapStateToProps(state) {
+  const { temperature, city, country, description, error } = state.weather;
+  return {
+    temperature,
+    city,
+    country,
+    description,
+    error
+  };
+}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -8,4 +19,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
