@@ -5,23 +5,12 @@ import SearchForm from './SearchForm/SearchForm';
 import './App.css';
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.getWeather = this.getWeather.bind(this);
-  }
-
   getWeather(e) {
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
     e.preventDefault();
 
-    if (city && country) {
-      this.props.loadWeather(city, country);
-    } else {
-      this.setState({
-        error: 'Please input search values...'
-      })
-    }
+    this.props.loadWeather(city, country);
   }
 
   render() {
