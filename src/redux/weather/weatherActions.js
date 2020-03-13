@@ -55,6 +55,17 @@ export function fetchFiveDayForecast(city, country) {
       if (res.status !== 200) {
         throw Error(res.json());
       }
+
+      return res.json();
+    }).then(res => console.log(res));
+}
+
+export function fetchFiveDayForecastByCityId(cityId) {
+  return fetch(`http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${Api_Key}&mode=json&units=metric`)
+    .then(res => {
+      if (res.status !== 200) {
+        throw Error(res.json());
+      }
       return res.json();
     });
 }
